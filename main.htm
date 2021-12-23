@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div class="container">
+        <p id="timer">0</p>
+        <button onclick="toggle()">Toggle</button>
+    </div>
+    <script>
+        let count = 0;
+
+        function incresement() {
+            let timerElement = document.querySelector("#timer");
+            count = count + 1;
+            timerElement.innerHTML = count;
+        }
+        let timer;
+
+        function toggle() {
+            let button = document.querySelector("button");
+            if (timer) {
+                clearInterval(timer);
+                timer = undefined;
+                button.innerText = "Start";
+                return;
+            }
+            timer = setInterval(incresement, 1000);
+            button.innerText = "Stop";
+        }
+    </script>
+</body>
+
+</html>
